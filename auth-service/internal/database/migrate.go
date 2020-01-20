@@ -11,12 +11,9 @@ import (
 	"github.com/morykeita/ASAP/auth-service/internal/config"
 	"github.com/pkg/errors"
 
-	_ "github.com/go-sql-driver/mysql"
-	_ "github.com/golang-migrate/migrate"
-	_ "github.com/golang-migrate/migrate/database/mysql"
-	_ "github.com/golang-migrate/migrate/source/file"
+	_ "github.com/golang-migrate/migrate/v4/database/postgres"
+	_ "github.com/golang-migrate/migrate/v4/source/github"
 	log "github.com/sirupsen/logrus"
-
 )
 
 func migrateDb( db *sql.DB)  error {
@@ -28,7 +25,7 @@ func migrateDb( db *sql.DB)  error {
 
 
 	migrationSource := fmt.Sprintf("file://%internal/database/migrations",config.DataDirectory)
-	migrator,err := migrate.NewWithDatabaseInstance(migrationSource,"mysql",driver)
+	migrator,err := migrate.NewWithDatabaseInstance(migrationSource,"postgres",driver)
 	if err != nil{
 		return errors.Wrap(err,"creating database migrator")
 	}

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/morykeita/ASAP/auth-service/internal/api"
 	"github.com/morykeita/ASAP/auth-service/internal/config"
 	database "github.com/morykeita/ASAP/auth-service/internal/database"
@@ -11,6 +12,7 @@ import (
 
 func main() {
 	flag.Parse()
+	fmt.Println("")
 	log.SetLevel(log.DebugLevel)
 	log.WithField("version" , config.Version).Debug("starting server.")
 

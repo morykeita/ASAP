@@ -13,7 +13,7 @@ import (
 var (
 	// use postgres
 	// disable sslmode
-	databaseUrl     = flag.String("database-url","GG9MDssj6z:hu0iDf1Ogj@tcp(remotemysql.com)/GG9MDssj6z","DataBase URL.")
+	databaseUrl     = flag.String("database-url","postgres://rxcrztvs:09dwNP2FncwmcHGqyeOy7LYqHJ116rYX@rajje.db.elephantsql.com:5432/rxcrztvs","DataBase URL.")
 	databaseTimeout = flag.Int64("database-timeout-ms",200000,"DataBase timeout in milliseconds.")
 	maxConnection   = 32
 )
@@ -22,7 +22,7 @@ func Connect()(*sqlx.DB, error) {
 	// Connect to database
 	dbUrl := *databaseUrl
 	log.WithField("url",dbUrl).Debug("connecting to database.")
-	conn, err := sqlx.Open("mysql", dbUrl)
+	conn, err := sqlx.Open("postgres", dbUrl)
 	if err != nil {
 		return nil , errors.Wrap(err,"could not connect to database.")
 	}

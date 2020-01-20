@@ -2,19 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a4a01e1-354d-4954-9537-c10de75d47b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/config/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/database/migrate.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/database/migrations/01_user_table.down.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/database/migrations/01_user_table.up.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/model/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/server/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/server/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/connect.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/database/connect.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/database/database.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/api/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/database/connect.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/database/connect.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/database/migrate.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/database/migrate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/database/migrations/01_user_table.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/internal/database/migrations/01_user_table.up.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +57,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -149,10 +147,14 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="428" y="124" width="800" height="677" key="#SQL_Dialects/67.27.1533.873@67.27.1533.873" timestamp="1579512564922" />
-    <state x="428" y="124" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579512941584">
+    <state x="428" y="124" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579550190480">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
-    <state x="428" y="124" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1533.873@67.27.1533.873" timestamp="1579512941584" />
+    <state x="428" y="124" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1533.873@67.27.1533.873" timestamp="1579550190480" />
+    <state x="641" y="181" width="374" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1579553964493">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="641" y="181" width="374" height="562" key="#com.intellij.ide.util.MemberChooser/67.27.1533.873@67.27.1533.873" timestamp="1579553964493" />
     <state x="502" y="78" width="652" height="768" key="#go_build_connect.go" timestamp="1579507042711">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
@@ -161,22 +163,22 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="611" y="220" width="424" height="484" key="FileChooserDialogImpl/67.27.1533.873@67.27.1533.873" timestamp="1579512556555" />
-    <state width="1487" height="195" key="GridCell.Tab.0.bottom" timestamp="1579513644607">
+    <state width="1487" height="124" key="GridCell.Tab.0.bottom" timestamp="1579554517673">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
-    <state width="1487" height="195" key="GridCell.Tab.0.bottom/67.27.1533.873@67.27.1533.873" timestamp="1579513644607" />
-    <state width="1487" height="195" key="GridCell.Tab.0.center" timestamp="1579513644606">
+    <state width="1487" height="124" key="GridCell.Tab.0.bottom/67.27.1533.873@67.27.1533.873" timestamp="1579554517673" />
+    <state width="1487" height="124" key="GridCell.Tab.0.center" timestamp="1579554517673">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
-    <state width="1487" height="195" key="GridCell.Tab.0.center/67.27.1533.873@67.27.1533.873" timestamp="1579513644606" />
-    <state width="1487" height="195" key="GridCell.Tab.0.left" timestamp="1579513644606">
+    <state width="1487" height="124" key="GridCell.Tab.0.center/67.27.1533.873@67.27.1533.873" timestamp="1579554517673" />
+    <state width="1487" height="124" key="GridCell.Tab.0.left" timestamp="1579554517672">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
-    <state width="1487" height="195" key="GridCell.Tab.0.left/67.27.1533.873@67.27.1533.873" timestamp="1579513644606" />
-    <state width="1487" height="195" key="GridCell.Tab.0.right" timestamp="1579513644607">
+    <state width="1487" height="124" key="GridCell.Tab.0.left/67.27.1533.873@67.27.1533.873" timestamp="1579554517672" />
+    <state width="1487" height="124" key="GridCell.Tab.0.right" timestamp="1579554517673">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
-    <state width="1487" height="195" key="GridCell.Tab.0.right/67.27.1533.873@67.27.1533.873" timestamp="1579513644607" />
+    <state width="1487" height="124" key="GridCell.Tab.0.right/67.27.1533.873@67.27.1533.873" timestamp="1579554517673" />
     <state x="322" y="97" key="SettingsEditor" timestamp="1579507692758">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
