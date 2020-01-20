@@ -10,7 +10,7 @@ import (
 func main() {
 	log.SetLevel(log.DebugLevel)
 	log.WithField("version" , config.Version).Debug("starting server.")
-	router, err := api.NewRouter()
+	_, err := api.NewRouter()
 	
 	if err != nil {
 		log.WithError(err).Fatal("Error writing version")
@@ -19,9 +19,12 @@ func main() {
 	server := http.Server{
 		Addr : addr,
 	}
-
-	if err := server.ListenAndServe();  err != nil && !http.ErrServerClosed {
-		log.WithError(err).Error("Server failed to start.")
+	// starting server
+	if err := server.ListenAndServe(); err != nil && err !=http.ErrServerClosed {
+		log.WithError(err).Error("Server failed to start")
 	}
+	
+	
+
 
 }
