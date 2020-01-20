@@ -1,6 +1,7 @@
 package api
 
 import (
+	"github.com/morykeita/ASAP/auth-service/database"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -8,7 +9,7 @@ import (
 )
 
 //NewRouter provide a handler API service.
-func NewRouter() (http.Handler, error) {
+func NewRouter(db database.Database) (http.Handler, error) {
 	router := mux.NewRouter()
 	router.HandleFunc("/version", v1.VersionHandler)
 	return router, nil
