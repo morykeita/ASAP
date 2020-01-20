@@ -7,4 +7,3 @@ COPY . .
 RUN go build -ldflags - "-X AAA..." github.com/morykeita/ASAP/auth-service/cmd/server
 
 FROM alpine:3.10
-EN

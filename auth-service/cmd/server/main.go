@@ -1,14 +1,16 @@
 package main
 
 import (
-	"github.com/morykeita/ASAP/auth-service/database"
 	"github.com/morykeita/ASAP/auth-service/internal/api"
 	"github.com/morykeita/ASAP/auth-service/internal/config"
+	database "github.com/morykeita/ASAP/auth-service/internal/database"
+	"github.com/namsral/flag"
 	log "github.com/sirupsen/logrus"
 	"net/http"
 )
 
 func main() {
+	flag.Parse()
 	log.SetLevel(log.DebugLevel)
 	log.WithField("version" , config.Version).Debug("starting server.")
 

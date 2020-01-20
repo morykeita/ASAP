@@ -11,26 +11,32 @@ import (
 )
 
 var (
-	databaseUrl = flag.String("database-url","GG9MDssj6z:hu0iDf1Ogj@tcp(remotemysql.com)/GG9MDssj6z","DataBase URL")
-	databaseTimeout = flag.Int64("database-timeout-ms",200000,"DataBase timeout in milliseconds")
-	max_connection = 32
+	// use postgres
+	// disable sslmode
+	databaseUrl     = flag.String("database-url","GG9MDssj6z:hu0iDf1Ogj@tcp(remotemysql.com)/GG9MDssj6z","DataBase URL.")
+	databaseTimeout = flag.Int64("database-timeout-ms",200000,"DataBase timeout in milliseconds.")
+	maxConnection   = 32
 )
-//user:password@/dbname"
-
-
+// Connect creates a new database connection
 func Connect()(*sqlx.DB, error) {
 	// Connect to database
 	dbUrl := *databaseUrl
-	log.Debug("connecting to database")
+	log.WithField("url",dbUrl).Debug("connecting to database.")
 	conn, err := sqlx.Open("mysql", dbUrl)
 	if err != nil {
-		return nil , errors.Wrap(err,"could not connect to database")
+		return nil , errors.Wrap(err,"could not connect to database.")
 	}
-	conn.SetMaxOpenConns(max_connection)
+	conn.SetMaxOpenConns(maxConnection)
 
 	// check if database is running
 	if err := waitForDB(conn.DB) ; err != nil {
 		return nil , err
+	}
+
+	// Migrate databases schemas
+
+	 if err := migrateDb(conn.DB); err != nil{
+		return nil, errors.Wrap(err, "Could not migrate database.")
 	}
 	return conn,nil
 }
@@ -41,11 +47,9 @@ func New() (Database,error) {
 	if err != nil {
 		return  nil,err
 	}
-	d := &database{conn:conn}
+	d := &database{conn: conn}
 	return  d,nil
 }
-
-
 
 func waitForDB(conn *sql.DB) error {
 	ready := make(chan struct{})
