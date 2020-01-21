@@ -13,8 +13,8 @@ import (
 var (
 	// use postgres
 	// disable sslmode
-	databaseUrl     = flag.String("database-url","postgres://rxcrztvs:09dwNP2FncwmcHGqyeOy7LYqHJ116rYX@rajje.db.elephantsql.com:5432/rxcrztvs","DataBase URL.")
-	databaseTimeout = flag.Int64("database-timeout-ms",200000,"DataBase timeout in milliseconds.")
+	databaseUrl     = flag.String("database-url","postgres://postgres:postgres@localhost/postgres?sslmode=disable","DataBase URL.")
+	databaseTimeout = flag.Int64("database-timeout-ms",20000,"DataBase timeout in milliseconds.")
 	maxConnection   = 32
 )
 // Connect creates a new database connection

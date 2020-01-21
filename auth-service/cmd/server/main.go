@@ -28,7 +28,8 @@ func main() {
 	if err != nil {
 		log.WithError(err).Fatal("Error writing version")
 	}
-	const addr = "0.0.0.0:8088"
+	// move to yml config file or centralized config server
+	const addr = "http://localhost:8080"
 	server := http.Server{
 		Handler:router,
 		Addr : addr,
